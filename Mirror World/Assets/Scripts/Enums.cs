@@ -1,0 +1,1 @@
+public enum ObjectType { text, choice };    // tells what type of content the DialogueObject has

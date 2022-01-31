@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b05c56127ff0d9438ebe802c7f58d22, type: 3}
+  m_Name: TestDialogueData
+  m_EditorClassIdentifier: 
+  dialogueId: 1
+  description: Test dialogue
+  dialogueObjects:
+  - nextObjectIndex: 1
+    previousObjectIndex: 0
+    type: 0
+    text: first
+    choices: []
+  - nextObjectIndex: 1
+    previousObjectIndex: 0
+    type: 1
+    text: second
+    choices:
+    - nextObjectIndex: 2
+      choiceText: first choice
+    - nextObjectIndex: 3
+      choiceText: second choice
+  - nextObjectIndex: 4
+    previousObjectIndex: 0
+    type: 0
+    text: from first choice
+    choices: []
+  - nextObjectIndex: 4
+    previousObjectIndex: 0
+    type: 0
+    text: from second choice
+    choices: []
+  - nextObjectIndex: 0
+    previousObjectIndex: 0
+    type: 0
+    text: last text
+    choices: []
