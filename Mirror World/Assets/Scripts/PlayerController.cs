@@ -5,37 +5,59 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public float speed;
+    private Rigidbody2D rb;
+    public float moveSpeed;
+    private Vector2 move;
+    //Change timeSinceLastAttack to count up and reset to zero from receiving a succeful attack bool from PlayerAttack.
+    private float timeSinceLastAttack = 5.0f;
+    //Interact is the universal interaction thing. Don't change that unless you know what you are doing.
+    public GameObject Interact;
+    //UsingItem is the attack thing for now. And it should be the one that is changeable through inventory.
+    public GameObject UsingItem;
+
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+
+    }
 
     void Update()
     {
-        if (Input.GetKey("w"))
+        move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        
+        if (move.x > 0.2)
+            transform.eulerAngles = new Vector3(0, 0, 270);
+        else if (move.x < -0.2)
+            transform.eulerAngles = new Vector3(0, 0, 90);
+        else
         {
-            transform.position += new Vector3(0, Time.deltaTime * speed, 0);
+            if (move.y > 0.2)
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            else if (move.y < -0.2)
+                transform.eulerAngles = new Vector3(0, 0, 180);
         }
-        if (Input.GetKey("s"))
+
+        if (Input.GetKeyDown("e"))
         {
-            transform.position += new Vector3(0, -Time.deltaTime * speed, 0);
+            
+            Interact.GetComponent<PlayerInteract>().PressedE();
+
         }
-        if (Input.GetKey("d"))
+
+        if (Input.GetKeyDown("space"))
         {
-            transform.position += new Vector3(Time.deltaTime * speed, 0, 0);
+            UsingItem.GetComponent<PlayerAttack>().PressedSpace(timeSinceLastAttack);
         }
-        if (Input.GetKey("a"))
-        {
-            transform.position += new Vector3(-Time.deltaTime * speed, 0, 0);
-        }
-        if (Input.GetKey("w") && Input.GetKey("d"))
-        {
-        }
-        if (Input.GetKey("s") && Input.GetKey("d"))
-        {
-        }
-        if (Input.GetKey("s") && Input.GetKey("a"))
-        {
-        }
-        if (Input.GetKey("w") && Input.GetKey("a"))
-        {
-        }
+
+
     }
+
+    void FixedUpdate()
+    {
+
+        rb.MovePosition(rb.position + (move.normalized * moveSpeed * Time.deltaTime));
+
+    }
+
 }
