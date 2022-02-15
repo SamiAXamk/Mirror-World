@@ -8,5 +8,5 @@ public class DialogueScriptableObject : ScriptableObject
     public int dialogueId;                      // used to find the right dialogue
     [TextArea] public string description;       // just for editor
     [Space(20)]
-    public List<DialogueObject> dialogueObjects;   // lits of all the texts in the dialogue
+    public List<DialogueObject> dialogueObjects;   // list of all the texts in the dialogue
 }
