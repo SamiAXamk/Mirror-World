@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 180);
         }
 
+        //Interaction command.
         if (Input.GetKeyDown("e"))
         {
             
@@ -45,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        //Use selected item, which can also be an attack.
         if (Input.GetKeyDown("space") && animationCD <= 0)
         {
             animationCD = UsingItem.GetComponent<PlayerAttack>().PressedSpace();

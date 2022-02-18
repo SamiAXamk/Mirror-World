@@ -11,6 +11,7 @@ public class PlayerAttack : MonoBehaviour
     private float animationCD = 1.0f;
     private float timeFromLastUse = 0;
 
+    //Adds valid targets to the list.
     private void OnTriggerEnter2D(Collider2D other)
     {
         
@@ -20,9 +21,10 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    //Removed a target from the list.
     private void OnTriggerExit2D(Collider2D other)
     {
-        //Change this to go through the list and remove other.
+        
         if (Targets.Contains(other))
         {
             Targets.Remove(other);
@@ -39,6 +41,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 target.gameObject.GetComponent<EnemyScript>().Attacked(attackPower);
             }
+
+            timeFromLastUse = 0;
             return animationCD;
         }
 
@@ -48,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
         return 0;
     }
 
+    //Countdown for item cooldown.
     void Update()
     {
         if (timeFromLastUse < 2000)
