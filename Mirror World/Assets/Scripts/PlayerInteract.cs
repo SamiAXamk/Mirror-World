@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
 
-    private Collider2D interactableElement = null;
+    List<Collider2D> Interactables = new List<Collider2D>();
+    
 
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -13,27 +14,26 @@ public class PlayerInteract : MonoBehaviour
 
         if (other.gameObject.CompareTag("Interactable"))
         {
-            //other.gameObject.GetComponent<Interactable>().Interacted();
-            interactableElement = other;
-            interactableElement.gameObject.GetComponent<Interactable>().ShowTutorialE(10);
+            Interactables.Add(other);
+            other.gameObject.GetComponent<Interactable>().ShowTutorialE(10);
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("Interactable"))
+        if (Interactables.Contains(other))
         {
-            interactableElement.gameObject.GetComponent<Interactable>().ShowTutorialE(-10);
-            interactableElement = null;
+            other.gameObject.GetComponent<Interactable>().ShowTutorialE(-10);
+            Interactables.Remove(other);
         }
     }
 
     public void PressedE()
     {
-        if (interactableElement != null)
+        if (Interactables.Count != 0)
         {
-            interactableElement.gameObject.GetComponent<Interactable>().Interacted();
+            Interactables[0].gameObject.GetComponent<Interactable>().Interacted();
         }
     }
 
