@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: f3319dac015785f4a89c2fd09b872efd
+guid: 50edf16441dd3e64fab93056f0e64287
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7517998868172926517
-    second: ShadowMonster_0
+      213: -3622833801081794730
+    second: BurnVictimMonster_0
   - first:
-      213: -5699508668585243966
-    second: ShadowMonster_1
+      213: -2203717404413669613
+    second: BurnVictimMonster_1
   - first:
-      213: 6590719809161005437
-    second: ShadowMonster_2
-  - first:
-      213: 3139687971772682933
-    second: ShadowMonster_3
-  - first:
-      213: 731082176234365151
-    second: ShadowMonster_4
-  - first:
-      213: 3731950655136747643
-    second: ShadowMonster_5
+      213: -6861126075538950986
+    second: BurnVictimMonster_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,127 +100,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShadowMonster_0
+      name: BurnVictimMonster_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 72
-        width: 41
-        height: 54
+        x: 4
+        y: 80
+        width: 28
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc193c88cd3baa790800000000000000
-      internalID: -7517998868172926517
+      spriteID: 65fcd3e3adb19bdc0800000000000000
+      internalID: -3622833801081794730
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowMonster_1
+      name: BurnVictimMonster_1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 72
-        width: 41
-        height: 54
+        x: 37
+        y: 80
+        width: 28
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ca87be201747e0b0800000000000000
-      internalID: -5699508668585243966
+      spriteID: 31fc39c42b2da61e0800000000000000
+      internalID: -2203717404413669613
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowMonster_2
+      name: BurnVictimMonster_2
       rect:
         serializedVersion: 2
-        x: 87
-        y: 72
-        width: 41
-        height: 54
+        x: 70
+        y: 80
+        width: 28
+        height: 47
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d790c2f4fb0f67b50800000000000000
-      internalID: 6590719809161005437
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShadowMonster_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 15
-        width: 41
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5b2d3175399629b20800000000000000
-      internalID: 3139687971772682933
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShadowMonster_4
-      rect:
-        serializedVersion: 2
-        x: 44
-        y: 15
-        width: 41
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd0a118ad53552a00800000000000000
-      internalID: 731082176234365151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShadowMonster_5
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 15
-        width: 41
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7056be195d8ac330800000000000000
-      internalID: 3731950655136747643
+      spriteID: 6b4b454af2268c0a0800000000000000
+      internalID: -6861126075538950986
       vertices: []
       indices: 
       edges: []

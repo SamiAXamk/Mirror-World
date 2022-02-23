@@ -1,25 +1,22 @@
 fileFormatVersion: 2
-guid: f3319dac015785f4a89c2fd09b872efd
+guid: 76a39c0be1d1923478a29a696a2b038b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7517998868172926517
-    second: ShadowMonster_0
+      213: -8172880356533807046
+    second: BurnMonsterWALK_0
   - first:
-      213: -5699508668585243966
-    second: ShadowMonster_1
+      213: -7560166441692372302
+    second: BurnMonsterWALK_1
   - first:
-      213: 6590719809161005437
-    second: ShadowMonster_2
+      213: -6569708822352938495
+    second: BurnMonsterWALK_2
   - first:
-      213: 3139687971772682933
-    second: ShadowMonster_3
+      213: -863121629766329703
+    second: BurnMonsterWALK_3
   - first:
-      213: 731082176234365151
-    second: ShadowMonster_4
-  - first:
-      213: 3731950655136747643
-    second: ShadowMonster_5
+      213: 525545363137561254
+    second: BurnMonsterWALK_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -109,127 +106,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ShadowMonster_0
+      name: BurnMonsterWALK_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 72
-        width: 41
-        height: 54
+        x: 5
+        y: 80
+        width: 29
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc193c88cd3baa790800000000000000
-      internalID: -7517998868172926517
+      spriteID: a38d8051e98149e80800000000000000
+      internalID: -8172880356533807046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowMonster_1
+      name: BurnMonsterWALK_1
       rect:
         serializedVersion: 2
-        x: 44
-        y: 72
-        width: 41
-        height: 54
+        x: 38
+        y: 80
+        width: 29
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ca87be201747e0b0800000000000000
-      internalID: -5699508668585243966
+      spriteID: 2b2e8104da4e41790800000000000000
+      internalID: -7560166441692372302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowMonster_2
+      name: BurnMonsterWALK_2
       rect:
         serializedVersion: 2
-        x: 87
-        y: 72
-        width: 41
-        height: 54
+        x: 71
+        y: 80
+        width: 29
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d790c2f4fb0f67b50800000000000000
-      internalID: 6590719809161005437
+      spriteID: 10a37e542a4b3d4a0800000000000000
+      internalID: -6569708822352938495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowMonster_3
+      name: BurnMonsterWALK_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 15
-        width: 41
-        height: 54
+        x: 8
+        y: 26
+        width: 29
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b2d3175399629b20800000000000000
-      internalID: 3139687971772682933
+      spriteID: 99a52d363739504f0800000000000000
+      internalID: -863121629766329703
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ShadowMonster_4
+      name: BurnMonsterWALK_4
       rect:
         serializedVersion: 2
-        x: 44
-        y: 15
-        width: 41
-        height: 54
+        x: 43
+        y: 26
+        width: 29
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fd0a118ad53552a00800000000000000
-      internalID: 731082176234365151
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ShadowMonster_5
-      rect:
-        serializedVersion: 2
-        x: 87
-        y: 15
-        width: 41
-        height: 54
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b7056be195d8ac330800000000000000
-      internalID: 3731950655136747643
+      spriteID: 6a20b2b29bc1b4700800000000000000
+      internalID: 525545363137561254
       vertices: []
       indices: 
       edges: []
