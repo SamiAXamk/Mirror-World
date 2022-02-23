@@ -1,28 +1,22 @@
 fileFormatVersion: 2
-guid: bf7c856868c4e0541ab16a749e6782fc
+guid: 76a39c0be1d1923478a29a696a2b038b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8251205126886568046
-    second: Furniture1_0
+      213: -8172880356533807046
+    second: BurnMonsterWALK_0
   - first:
-      213: -3768790331897734669
-    second: Furniture1_1
+      213: -7560166441692372302
+    second: BurnMonsterWALK_1
   - first:
-      213: -322220620670213524
-    second: Furniture1_2
+      213: -6569708822352938495
+    second: BurnMonsterWALK_2
   - first:
-      213: 2902160368244163484
-    second: Furniture1_3
+      213: -863121629766329703
+    second: BurnMonsterWALK_3
   - first:
-      213: 5373793724251235903
-    second: Furniture1_4
-  - first:
-      213: 1994787173842853094
-    second: Furniture1_5
-  - first:
-      213: -6266429876000738474
-    second: Furniture1_6
+      213: 525545363137561254
+    second: BurnMonsterWALK_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -53,7 +47,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -112,148 +106,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Furniture1_0
+      name: BurnMonsterWALK_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 82
-        width: 28
-        height: 44
+        x: 5
+        y: 80
+        width: 29
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60b4fc985b228270800000000000000
-      internalID: 8251205126886568046
+      spriteID: a38d8051e98149e80800000000000000
+      internalID: -8172880356533807046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Furniture1_1
+      name: BurnMonsterWALK_1
       rect:
         serializedVersion: 2
-        x: 35
-        y: 75
-        width: 12
-        height: 50
+        x: 38
+        y: 80
+        width: 29
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3f91f4a392192bbc0800000000000000
-      internalID: -3768790331897734669
+      spriteID: 2b2e8104da4e41790800000000000000
+      internalID: -7560166441692372302
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Furniture1_2
-      rect:
-        serializedVersion: 2
-        x: 53
-        y: 101
-        width: 23
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6265ad7d0e378bf0800000000000000
-      internalID: -322220620670213524
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Furniture1_3
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 97
-        width: 13
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c9309668a7b864820800000000000000
-      internalID: 2902160368244163484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Furniture1_4
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 39
-        width: 37
-        height: 24
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f36e73eabec839a40800000000000000
-      internalID: 5373793724251235903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Furniture1_5
-      rect:
-        serializedVersion: 2
-        x: 43
-        y: 39
-        width: 22
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ec9863ad58eeab10800000000000000
-      internalID: 1994787173842853094
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Furniture1_6
+      name: BurnMonsterWALK_2
       rect:
         serializedVersion: 2
         x: 71
-        y: 35
+        y: 80
         width: 29
-        height: 58
+        height: 48
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 653b41f8a3b2909a0800000000000000
-      internalID: -6266429876000738474
+      spriteID: 10a37e542a4b3d4a0800000000000000
+      internalID: -6569708822352938495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnMonsterWALK_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 26
+        width: 29
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99a52d363739504f0800000000000000
+      internalID: -863121629766329703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BurnMonsterWALK_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 26
+        width: 29
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a20b2b29bc1b4700800000000000000
+      internalID: 525545363137561254
       vertices: []
       indices: 
       edges: []
