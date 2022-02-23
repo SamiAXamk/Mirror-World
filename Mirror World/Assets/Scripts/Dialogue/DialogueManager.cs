@@ -16,7 +16,8 @@ public class DialogueManager : MonoBehaviour
     {
         dialogueArray = Resources.LoadAll("DialogueData");
         ButtonListenerSetup();
-        StartDialogue(1);
+        // this was for testing
+        //StartDialogue(1);
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (currentDialogue.dialogueObjects[dialogueObjectIndex].type != ObjectType.choice)
+            if (currentDialogue != null && currentDialogue.dialogueObjects[dialogueObjectIndex].type != ObjectType.choice)
                 NextDialogueObject();
         }
     }
