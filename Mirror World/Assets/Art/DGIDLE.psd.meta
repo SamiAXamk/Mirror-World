@@ -1,16 +1,25 @@
 fileFormatVersion: 2
-guid: 50edf16441dd3e64fab93056f0e64287
+guid: d4082769e580adf43b7272419b3f265b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3622833801081794730
-    second: BurnVictimMonster_0
+      213: -3353867322644076587
+    second: DogMonsterIDLE_0
   - first:
-      213: -2203717404413669613
-    second: BurnVictimMonster_1
+      213: 3790615865189233701
+    second: DogMonsterIDLE_1
   - first:
-      213: -6861126075538950986
-    second: BurnVictimMonster_2
+      213: -4588385215334589097
+    second: DogMonsterIDLE_2
+  - first:
+      213: -2376361909925747719
+    second: DogMonsterIDLE_3
+  - first:
+      213: -310230650170113995
+    second: DogMonsterIDLE_4
+  - first:
+      213: 7438017686015291034
+    second: DogMonsterIDLE_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BurnVictimMonster_0
+      name: DogMonsterIDLE_0
       rect:
         serializedVersion: 2
         x: 4
-        y: 80
-        width: 28
-        height: 47
+        y: 97
+        width: 41
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,20 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65fcd3e3adb19bdc0800000000000000
-      internalID: -3622833801081794730
+      spriteID: 5d7620a807ba471d0800000000000000
+      internalID: -3353867322644076587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurnVictimMonster_1
+      name: DogMonsterIDLE_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 80
-        width: 28
-        height: 47
+        x: 53
+        y: 97
+        width: 41
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31fc39c42b2da61e0800000000000000
-      internalID: -2203717404413669613
+      spriteID: 524709cbb09fa9430800000000000000
+      internalID: 3790615865189233701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BurnVictimMonster_2
+      name: DogMonsterIDLE_2
       rect:
         serializedVersion: 2
-        x: 70
-        y: 80
-        width: 28
-        height: 47
+        x: 4
+        y: 64
+        width: 41
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +165,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b4b454af2268c0a0800000000000000
-      internalID: -6861126075538950986
+      spriteID: 75dd35bf4f7c250c0800000000000000
+      internalID: -4588385215334589097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DogMonsterIDLE_3
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 64
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f36b15fe67750fd0800000000000000
+      internalID: -2376361909925747719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DogMonsterIDLE_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 25
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5300c2a0ed6d1bbf0800000000000000
+      internalID: -310230650170113995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DogMonsterIDLE_5
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 25
+        width: 41
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9ea3085da5293760800000000000000
+      internalID: 7438017686015291034
       vertices: []
       indices: 
       edges: []
