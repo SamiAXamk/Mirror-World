@@ -219,3 +219,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e49fa4a63c5e430498edefb167a5500f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
+  smoothFactor: 0
+  minValues: {x: 0, y: 0, z: 0}
+  maxValues: {x: 0, y: 0, z: 0}

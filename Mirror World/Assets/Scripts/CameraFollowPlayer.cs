@@ -23,8 +23,5 @@ public class CameraFollowPlayer : MonoBehaviour
            (Mathf.Clamp(targetPosition.x, minValues.x, maxValues.x),
             Mathf.Clamp(targetPosition.y, minValues.y, maxValues.y),
             Mathf.Clamp(targetPosition.z, minValues.z, maxValues.z));
-
-        Vector3 smoothPosition = Vector3.Lerp(transform.position, boundPosition, targetPosition,smoothFactor*Time.fixedDeltaTime);
-        transform.position = smoothPosition;
     }
 }
