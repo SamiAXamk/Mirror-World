@@ -22,6 +22,16 @@ public class Player : MonoBehaviour
 
     public void AddConsumableItem(ConsumableItem item)
     {
+        foreach(ConsumableItem obj in consumableItems)
+        {
+            if(obj.id == item.id)
+            {
+                item.amount++;
+                // player already had the item so increment it's amount and return from the function
+                return;
+            }
+        }
+        // player did't have the item so add it to the list
         consumableItems.Add(item);
     }
 }

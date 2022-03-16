@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df61819d1147aa54cb1f057ed36f2030, type: 3}
   m_Name: consumable2
   m_EditorClassIdentifier: 
-  id: 2
-  name: consumable2
-  sprite: {fileID: 21300000, guid: ade0ad1db98c1704183145aa5d5779b6, type: 3}
-  description: another ting
+  id: 0
+  name: 
+  sprite: {fileID: 21300000, guid: e6c26ac310e86b94e96a9b4f61273a16, type: 3}
+  description: description 2
+  amount: 0

@@ -5,35 +5,45 @@ using UnityEngine;
 public class PlayerInteract : MonoBehaviour
 {
 
-    private Collider2D interactableElement = null;
+    List<Collider2D> Interactables = new List<Collider2D>();
+    private int listLast = 0;
 
-
+    //Adds interactable to the list
     private void OnTriggerEnter2D(Collider2D other)
     {
 
         if (other.gameObject.CompareTag("Interactable"))
         {
-            //other.gameObject.GetComponent<Interactable>().Interacted();
-            interactableElement = other;
-            interactableElement.gameObject.GetComponent<Interactable>().ShowTutorialE(10);
+            Interactables.Add(other);
+            
+            other.gameObject.GetComponent<Interactable>().ShowTutorialE(10);
         }
     }
 
+    //Removes interactable from the list.
     private void OnTriggerExit2D(Collider2D other)
     {
 
-        if (other.gameObject.CompareTag("Interactable"))
+        if (Interactables.Contains(other))
         {
-            interactableElement.gameObject.GetComponent<Interactable>().ShowTutorialE(-10);
-            interactableElement = null;
+            
+            Interactables.Remove(other);
+            
+            if (Interactables.Count == 0)
+            {
+                other.gameObject.GetComponent<Interactable>().ShowTutorialE(-10);
+            }
         }
     }
 
+    //Calls for the last item on the list to be used.
     public void PressedE()
     {
-        if (interactableElement != null)
+        if (Interactables.Count != 0)
         {
-            interactableElement.gameObject.GetComponent<Interactable>().Interacted();
+            listLast = Interactables.Count - 1;
+
+            Interactables[listLast].gameObject.GetComponent<Interactable>().Interacted();
         }
     }
 

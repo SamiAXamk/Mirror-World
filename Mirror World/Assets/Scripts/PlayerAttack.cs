@@ -5,37 +5,59 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
 
-    //Change this to list when doing proper combat.
-    private Collider2D attackableTarget = null;
+    List<Collider2D> Targets = new List<Collider2D>();
     private int attackPower = 5;
-    private float attackSpeed = 1.0f;
+    private float itemCD = 1.0f;
+    private float animationCD = 1.0f;
+    private float timeFromLastUse = 0;
 
+    //Adds valid targets to the list.
     private void OnTriggerEnter2D(Collider2D other)
     {
         
         if(other.gameObject.CompareTag("Enemy"))
         {
-            attackableTarget = other;
+            Targets.Add(other);
         }
     }
 
+    //Removed a target from the list.
     private void OnTriggerExit2D(Collider2D other)
     {
-        //Change this to go through the list and remove other.
-        if (other = attackableTarget)
+        
+        if (Targets.Contains(other))
         {
-            attackableTarget = null;
+            Targets.Remove(other);
         }
     }
 
-    //Change void to bool, where method returns true, if attackSpeed constraint was met (regardless of whether the attack hit anything).
-    public void PressedSpace(float timeFromLastAttack)
+    //Uses item if itemCD has expired and returns animationCD, which is the time this item takes to "trigger", preventing other item uses.
+    public float PressedSpace()
     {
-        //Change to "for each in list".
-        if (attackableTarget != null && timeFromLastAttack >= attackSpeed)
+        
+        if (timeFromLastUse >= itemCD)
         {
-            attackableTarget.gameObject.GetComponent<EnemyScript>().Attacked(attackPower);
-            
+            foreach (Collider2D target in Targets)
+            {
+                target.gameObject.GetComponent<EnemyScript>().Attacked(attackPower);
+            }
+
+            timeFromLastUse = 0;
+            return animationCD;
+        }
+
+        //If itemCD has not expired return 0, which means item wasn't used.
+        //You can add some mild sound for this as well.
+        else
+        return 0;
+    }
+
+    //Countdown for item cooldown.
+    void Update()
+    {
+        if (timeFromLastUse < 2000)
+        {
+            timeFromLastUse += Time.deltaTime;
         }
     }
 

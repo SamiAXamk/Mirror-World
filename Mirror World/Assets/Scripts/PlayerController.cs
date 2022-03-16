@@ -8,8 +8,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public float moveSpeed;
     private Vector2 move;
-    //Change timeSinceLastAttack to count up and reset to zero from receiving a succeful attack bool from PlayerAttack.
-    private float timeSinceLastAttack = 5.0f;
+    //This is a cooldown, which a used item sends back here and prevents other items from being used before this one goes back to zero.
+    private float animationCD = 0;
     //Interact is the universal interaction thing. Don't change that unless you know what you are doing.
     public GameObject Interact;
     //UsingItem is the attack thing for now. And it should be the one that is changeable through inventory.
@@ -38,6 +38,7 @@ public class PlayerController : MonoBehaviour
                 transform.eulerAngles = new Vector3(0, 0, 180);
         }
 
+        //Interaction command.
         if (Input.GetKeyDown("e"))
         {
             
@@ -45,11 +46,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown("space"))
+        //Use selected item, which can also be an attack.
+        if (Input.GetKeyDown("space") && animationCD <= 0)
         {
-            UsingItem.GetComponent<PlayerAttack>().PressedSpace(timeSinceLastAttack);
+            animationCD = UsingItem.GetComponent<PlayerAttack>().PressedSpace();
+
         }
 
+        if (animationCD > -1)
+        {
+            animationCD -= Time.deltaTime;
+        }
 
     }
 
