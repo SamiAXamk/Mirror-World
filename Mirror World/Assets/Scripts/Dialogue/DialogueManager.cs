@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text textField;          // text box for dialogue
-    public Button[] choiceButtons;  // buttons for multiple choice parts
+    public Text textField;                              // text box for dialogue
+    public Button[] choiceButtons;                      // buttons for multiple choice parts
 
     private Object[] dialogueArray;                     // array of all dialogues in the game
     private DialogueScriptableObject currentDialogue;   // variable that holds the dialogue currently being played
@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
 
     void Start()
     {
+        // load all dialogues from "Dialoguedata"
         dialogueArray = Resources.LoadAll("DialogueData");
         ButtonListenerSetup();
         // this was for testing
@@ -25,6 +26,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            // dialogue is not null && and type is not choice
             if (currentDialogue != null && currentDialogue.dialogueObjects[dialogueObjectIndex].type != ObjectType.choice)
                 NextDialogueObject();
         }
@@ -92,9 +94,9 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    // set listeners to all choice buttons - this is done this way for a reason that includes how memory and stack works, ask your coder for details if interested
     private void ButtonListenerSetup()
     {
-        // set listeners to all choice buttons - this is done this way for a reason that includes how memory and stack works, ask your coder for details if interested
         int count = 0;
         foreach (Button btn in choiceButtons)
         {
