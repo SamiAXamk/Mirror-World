@@ -40,6 +40,8 @@ public class InventoryUI : MonoBehaviour
         infoText = infoTextGameObject.GetComponent<Text>();
 
         SetupInventoryObjects();
+
+        EventManager.OnAllItemsUsed += SetItemsInInventory;
     }
 
     // Update is called once per frame
@@ -105,6 +107,11 @@ public class InventoryUI : MonoBehaviour
             }
         }
 
+        SetItemsInInventory();
+    }
+
+    private void SetItemsInInventory()
+    {
         // Set items and sprites on inventoryObjects
         int k = 0;
         foreach (ConsumableItem item in playerScript.consumableItems)
@@ -113,6 +120,20 @@ public class InventoryUI : MonoBehaviour
             inventoryObjects[k].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = item.sprite;
             k++;
         }
+    }
+
+    private void SetItemsInInventory(ConsumableItem obj)
+    {
+        // Set items and sprites on inventoryObjects
+        int k = 0;
+        foreach (ConsumableItem item in playerScript.consumableItems)
+        {
+            inventoryObjects[k].GetComponent<InventoryObjectContainer>().itemData = item;
+            inventoryObjects[k].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = item.sprite;
+            k++;
+        }
+        inventoryObjects[k].GetComponent<InventoryObjectContainer>().itemData = null;
+        inventoryObjects[k].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = null;
     }
 
     private void SetHotbarButton(ref ConsumableItem item, KeyCode? keyCode)
