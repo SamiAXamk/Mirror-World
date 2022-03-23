@@ -7,8 +7,8 @@ public class PlayerAttack : MonoBehaviour
 
     List<Collider2D> Targets = new List<Collider2D>();
     private int attackPower = 5;
-    private float itemCD = 1.0f;
-    private float animationCD = 1.0f;
+    private float itemCD = 1.0f;        // can't use this item during cd
+    private float animationCD = 1.0f;   // can't use any item during this cd
     private float timeFromLastUse = 0;
 
     //Adds valid targets to the list.

@@ -6,18 +6,18 @@ public class Player : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] int health;
-    public List<WearableItem> wearableItems = new List<WearableItem>();
+    public List<PermanentItem> permanentItems = new List<PermanentItem>();
     public List<ConsumableItem> consumableItems = new List<ConsumableItem>();
-    WearableItem equippedItem;
+    PermanentItem equippedItem;
 
-    public void EquipItem(WearableItem item)
+    public void EquipItem(PermanentItem item)
     {
         equippedItem = item;
     }
 
-    public void AddWearableItem(WearableItem item)
+    public void AddPermanentItem(PermanentItem item)
     {
-        wearableItems.Add(item);
+        permanentItems.Add(item);
     }
 
     public void AddConsumableItem(ConsumableItem item)
