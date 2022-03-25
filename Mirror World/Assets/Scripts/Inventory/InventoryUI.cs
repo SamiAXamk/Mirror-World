@@ -34,6 +34,7 @@ public class InventoryUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // get list of keycodes we want to listen to
         hotbarKeycodes.Add(KeyCode.Alpha1);
         hotbarKeycodes.Add(KeyCode.Alpha2);
         hotbarKeycodes.Add(KeyCode.Alpha3);
@@ -41,9 +42,11 @@ public class InventoryUI : MonoBehaviour
         hotbarKeycodes.Add(KeyCode.Alpha5);
 
         playerScript = playerObject.GetComponent<Player>();
+        infoText = infoTextGameObject.GetComponent<Text>();
+
+        // parent gameobjects that contain the contents for the different inventory tabs
         inventoryConsumablesParent = inventoryParentGameObject.transform.GetChild(0).gameObject;
         inventoryPermanentsParent = inventoryParentGameObject.transform.GetChild(1).gameObject;
-        infoText = infoTextGameObject.GetComponent<Text>();
 
         SetupInventoryObjectHolders();
 
@@ -57,7 +60,7 @@ public class InventoryUI : MonoBehaviour
             InventoryToggle();
 
         if (Input.GetKeyDown(KeyCode.Tab))
-            TabToggle();
+            TabChange();
 
         // handles the movement in the inventory view
         if (inventoryParentGameObject.activeSelf)
@@ -72,10 +75,13 @@ public class InventoryUI : MonoBehaviour
                 HoveredItem(-columns);
 
             // set the description for the item
-            infoText.text = inventoryConsumableHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().itemData.description;
+            if (inventoryConsumablesParent.activeSelf)
+                infoText.text = inventoryConsumableHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().itemData.description;
+            else
+                infoText.text = inventoryPermanentHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().itemData.description;
 
             // if hotbar button was pressed, set the item in the hotbar
-            if(GetPressedKeycode() != null)
+            if (GetPressedKeycode() != null)
             {
                 SetHotbarButton(ref inventoryConsumableHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().itemData, GetPressedKeycode());
             }
@@ -85,29 +91,49 @@ public class InventoryUI : MonoBehaviour
     private void InventoryToggle()
     {
         if (inventoryParentGameObject.activeSelf)
+        {
             inventoryParentGameObject.SetActive(false);
+        }
         else
         {
             inventoryParentGameObject.SetActive(true);
             inventoryConsumableHolders[selectedItemIndex].GetComponent<Image>().color = hoverColor;
+
+            if (inventoryConsumablesParent.activeSelf)
+            {
+                itemTab.GetComponent<Image>().color = hoverColor;
+                personTab.GetComponent<Image>().color = transparentColor;
+            }
+            else
+            {
+                itemTab.GetComponent<Image>().color = transparentColor;
+                personTab.GetComponent<Image>().color = hoverColor;
+            }
         }
     }
 
-    private void TabToggle()
+    // changes the inventory tab
+    private void TabChange()
     {
+        inventoryConsumablesParent.SetActive(!inventoryConsumablesParent.activeSelf);
+        inventoryPermanentsParent.SetActive(!inventoryPermanentsParent.activeSelf);
+
         if (inventoryConsumablesParent.activeSelf)
         {
-            inventoryConsumablesParent.SetActive(false);
-            itemTab.GetComponent<Image>().color = transparentColor;
-            inventoryPermanentsParent.SetActive(true);
-            personTab.GetComponent<Image>().color = hoverColor;
+            itemTab.GetComponent<Image>().color = hoverColor;
+            personTab.GetComponent<Image>().color = transparentColor;
+
+            inventoryConsumableHolders[selectedItemIndex].GetComponent<Image>().color = hoverColor;
+            inventoryPermanentHolders[selectedItemIndex].GetComponent<Image>().color = transparentColor;
+
         }
         else
         {
-            inventoryConsumablesParent.SetActive(true);
-            itemTab.GetComponent<Image>().color = hoverColor;
-            inventoryPermanentsParent.SetActive(false);
-            personTab.GetComponent<Image>().color = transparentColor;
+            itemTab.GetComponent<Image>().color = transparentColor;
+            personTab.GetComponent<Image>().color = hoverColor;
+
+            inventoryConsumableHolders[selectedItemIndex].GetComponent<Image>().color = transparentColor;
+            inventoryPermanentHolders[selectedItemIndex].GetComponent<Image>().color = hoverColor;
         }
     }
 
@@ -127,8 +153,9 @@ public class InventoryUI : MonoBehaviour
                 var obj = Instantiate(inventoryObjectHolder, inventoryConsumablesParent.transform);
                 obj.GetComponent<RectTransform>().anchoredPosition = new Vector3(xPos, yPos, 0);
                 obj.GetComponent<RectTransform>().sizeDelta = new Vector2(width, width);
-                obj.GetComponent<BoxCollider2D>().size = new Vector2(width, width);
-                obj.GetComponent<BoxCollider2D>().offset = new Vector2(width / 2, -width / 2);
+                //obj.GetComponent<BoxCollider2D>().size = new Vector2(width, width);
+                //obj.GetComponent<BoxCollider2D>().offset = new Vector2(width / 2, -width / 2);
+                obj.GetComponent<Image>().color = transparentColor;
 
                 var obj2 = Instantiate(obj, inventoryPermanentsParent.transform);
 
@@ -175,18 +202,30 @@ public class InventoryUI : MonoBehaviour
     // highlights the hovered item
     private void HoveredItem(int change)
     {
-        inventoryConsumableHolders[selectedItemIndex].GetComponent<Image>().color = transparentColor;
+        if (inventoryConsumablesParent.activeSelf)
+        {
+            inventoryConsumableHolders[selectedItemIndex].GetComponent<Image>().color = transparentColor;
 
-        if (selectedItemIndex + change >= 0 && selectedItemIndex + change < inventoryConsumableHolders.Count)
-            selectedItemIndex += change;
+            if (selectedItemIndex + change >= 0 && selectedItemIndex + change < inventoryConsumableHolders.Count)
+                selectedItemIndex += change;
 
-        inventoryConsumableHolders[selectedItemIndex].GetComponent<Image>().color = hoverColor;
+            inventoryConsumableHolders[selectedItemIndex].GetComponent<Image>().color = hoverColor;
+        }
+        else
+        {
+            inventoryPermanentHolders[selectedItemIndex].GetComponent<Image>().color = transparentColor;
+
+            if (selectedItemIndex + change >= 0 && selectedItemIndex + change < inventoryPermanentHolders.Count)
+                selectedItemIndex += change;
+
+            inventoryPermanentHolders[selectedItemIndex].GetComponent<Image>().color = hoverColor;
+        }
     }
 
     // returns the hotbarkey being pressed or null
     private KeyCode? GetPressedKeycode()
     {
-        foreach(KeyCode key in hotbarKeycodes)
+        foreach (KeyCode key in hotbarKeycodes)
         {
             if (Input.GetKeyDown(key))
             {
