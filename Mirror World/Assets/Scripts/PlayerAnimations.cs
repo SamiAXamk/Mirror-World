@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerAnimations : MonoBehaviour
 {
+    [SerializeField] Sprite front;
+    [SerializeField] Sprite back;
+    [SerializeField] Sprite right;
+
     Animator anim;
     SpriteRenderer renderer;
 
@@ -17,32 +21,71 @@ public class PlayerAnimations : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        //    anim.enabled = true;
+        //else
+        //    anim.enabled = false;
+
         if (Input.GetKey(KeyCode.DownArrow))
+        {
+            renderer.flipX = false;
             anim.SetBool("WalkDown", true);
+        }
         else
+        {
             anim.SetBool("WalkDown", false);
+        }
 
         if (Input.GetKey(KeyCode.UpArrow))
+        {
+            renderer.flipX = false;
             anim.SetBool("WalkUp", true);
+        }
         else
+        {
             anim.SetBool("WalkUp", false);
+        }
 
         if (Input.GetKey(KeyCode.RightArrow))
+        {
+            renderer.flipX = false;
             anim.SetBool("WalkRight", true);
+        }
         else
+        {
             anim.SetBool("WalkRight", false);
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             anim.SetBool("WalkLeft", true);
-            //gameObject.transform.localScale = new Vector3(1,1,-1);
+            renderer.sprite = right;
             renderer.flipX = true;
         }
         else
         {
             anim.SetBool("WalkLeft", false);
-            //gameObject.transform.localScale = new Vector3(1, 1, 1);
-            renderer.flipX = false;
         }
+
+
+
+        
+    }
+
+    private void LateUpdate()
+    {
+        //if (gameObject.transform.rotation.z == 0)
+        //    renderer.sprite = back;
+        //if (gameObject.transform.rotation.z > 179 && gameObject.transform.rotation.z < 181)
+        //    renderer.sprite = front;
+        //else if (gameObject.transform.rotation.z == 90)
+        //    renderer.sprite = right;
+        //else if (gameObject.transform.rotation.z == -90)
+        //{
+        //    renderer.sprite = right;
+        //    renderer.flipX = true;
+        //}
+        //else
+        //    renderer.flipX = false;
     }
 }
