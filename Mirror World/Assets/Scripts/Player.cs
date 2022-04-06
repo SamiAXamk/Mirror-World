@@ -8,9 +8,9 @@ public class Player : MonoBehaviour
     [SerializeField] int health;
     public List<PermanentItem> permanentItems = new List<PermanentItem>();
     public List<ConsumableItem> consumableItems = new List<ConsumableItem>();
-    PermanentItem equippedItem;
+    PermanentItemSO equippedItem;
 
-    public void EquipItem(PermanentItem item)
+    public void EquipItem(PermanentItemSO item)
     {
         equippedItem = item;
     }

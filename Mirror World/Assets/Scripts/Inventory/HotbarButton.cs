@@ -17,7 +17,7 @@ public class HotbarButton : MonoBehaviour
     private TMP_Text text;
     private int keyNumber;
 
-    private ConsumableItem itemRef;
+    private ItemBase itemRef;
     private Player player;
     private GameObject inventoryParent;
 
@@ -57,12 +57,23 @@ public class HotbarButton : MonoBehaviour
         // Invokes the OnButtonClick function assigned to this button.
 
         //OnButtonClick?.Invoke(keyNumber);
-
         if (!inventoryParent.activeSelf)
-            itemRef?.UseItem(player.consumableItems);
+        {
+            try
+            {
+                PermanentItem item = (PermanentItem)itemRef;
+                item?.UseItem(player.permanentItems);
+            }
+            catch (InvalidCastException)
+            {
+
+                ConsumableItem item = (ConsumableItem)itemRef;
+                item?.UseItem(player.consumableItems);
+            }
+        }
     }
 
-    public void SetHotbarItemFunction(ConsumableItem item, KeyCode? _keyCode)
+    public void SetHotbarItemFunction(ItemBase item, KeyCode? _keyCode)
     {
         if (_keyCode == keyCode)
         {

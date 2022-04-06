@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    public event Action<ConsumableItem, KeyCode?> OnSetHotbarItem;
+    public event Action<ItemBase, KeyCode?> OnSetHotbarItem;
 
     [SerializeField] GameObject inventoryParentGameObject;
     [SerializeField] GameObject playerObject;
@@ -20,6 +20,7 @@ public class InventoryUI : MonoBehaviour
     [SerializeField] Color hoverColor;
 
     Player playerScript;
+    PlayerController playerController;
     GameObject inventoryConsumablesParent;
     GameObject inventoryPermanentsParent;
     Text infoText;
@@ -42,6 +43,7 @@ public class InventoryUI : MonoBehaviour
         hotbarKeycodes.Add(KeyCode.Alpha5);
 
         playerScript = playerObject.GetComponent<Player>();
+        playerController = playerObject.GetComponent<PlayerController>();
         infoText = infoTextGameObject.GetComponent<Text>();
 
         // parent gameobjects that contain the contents for the different inventory tabs
@@ -76,14 +78,25 @@ public class InventoryUI : MonoBehaviour
 
             // set the description for the item
             if (inventoryConsumablesParent.activeSelf)
-                infoText.text = inventoryConsumableHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().itemData.description;
+                infoText.text = inventoryConsumableHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().consumableItemData.description;
             else
-                infoText.text = inventoryPermanentHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().itemData.description;
+                infoText.text = inventoryPermanentHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().consumableItemData.description;
 
             // if hotbar button was pressed, set the item in the hotbar
             if (GetPressedKeycode() != null)
             {
-                SetHotbarButton(ref inventoryConsumableHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().itemData, GetPressedKeycode());
+                if (inventoryConsumablesParent.activeSelf)
+                {
+                    //SetHotbarButton(ref inventoryConsumableHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().consumableItemData, GetPressedKeycode());
+                    ItemBase item = (ItemBase)inventoryConsumableHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().consumableItemData;
+                    SetHotbarButton(ref item, GetPressedKeycode());
+                }
+                else
+                {
+                    //SetHotbarButton(ref inventoryPermanentHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().permanentItemData, GetPressedKeycode());
+                    ItemBase item = (ItemBase)inventoryPermanentHolders[selectedItemIndex].GetComponent<InventoryObjectContainer>().permanentItemData;
+                    SetHotbarButton(ref item, GetPressedKeycode());
+                }
             }
         }
     }
@@ -92,10 +105,12 @@ public class InventoryUI : MonoBehaviour
     {
         if (inventoryParentGameObject.activeSelf)
         {
+            playerController.inventoryOpen = false;
             inventoryParentGameObject.SetActive(false);
         }
         else
         {
+            playerController.inventoryOpen = true;
             inventoryParentGameObject.SetActive(true);
             inventoryConsumableHolders[selectedItemIndex].GetComponent<Image>().color = hoverColor;
 
@@ -174,8 +189,16 @@ public class InventoryUI : MonoBehaviour
         int k = 0;
         foreach (ConsumableItem item in playerScript.consumableItems)
         {
-            inventoryConsumableHolders[k].GetComponent<InventoryObjectContainer>().itemData = item;
+            inventoryConsumableHolders[k].GetComponent<InventoryObjectContainer>().consumableItemData = item;
             inventoryConsumableHolders[k].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = item.sprite;
+            k++;
+        }
+
+        k = 0;
+        foreach (PermanentItem item in playerScript.permanentItems)
+        {
+            inventoryPermanentHolders[k].GetComponent<InventoryObjectContainer>().permanentItemData = item;
+            inventoryPermanentHolders[k].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = item.sprite;
             k++;
         }
     }
@@ -186,15 +209,15 @@ public class InventoryUI : MonoBehaviour
         int k = 0;
         foreach (ConsumableItem item in playerScript.consumableItems)
         {
-            inventoryConsumableHolders[k].GetComponent<InventoryObjectContainer>().itemData = item;
+            inventoryConsumableHolders[k].GetComponent<InventoryObjectContainer>().consumableItemData = item;
             inventoryConsumableHolders[k].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = item.sprite;
             k++;
         }
-        inventoryConsumableHolders[k].GetComponent<InventoryObjectContainer>().itemData = null;
+        inventoryConsumableHolders[k].GetComponent<InventoryObjectContainer>().consumableItemData = null;
         inventoryConsumableHolders[k].transform.GetChild(0).gameObject.GetComponent<Image>().sprite = null;
     }
 
-    private void SetHotbarButton(ref ConsumableItem item, KeyCode? keyCode)
+    private void SetHotbarButton(ref ItemBase item, KeyCode? keyCode)
     {
         OnSetHotbarItem?.Invoke(item, keyCode);
     }

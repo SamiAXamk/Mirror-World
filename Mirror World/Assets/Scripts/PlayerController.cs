@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool inventoryOpen = false;
 
     private Rigidbody2D rb;
     public float moveSpeed;
@@ -24,8 +25,21 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!inventoryOpen)
+            HandlePlayerControls();
+    }
+
+    void FixedUpdate()
+    {
+
+        rb.MovePosition(rb.position + (move.normalized * moveSpeed * Time.deltaTime));
+
+    }
+
+    private void HandlePlayerControls()
+    {
         move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
+
         if (move.x > 0.2)
             transform.eulerAngles = new Vector3(0, 0, 270);
         else if (move.x < -0.2)
@@ -41,7 +55,7 @@ public class PlayerController : MonoBehaviour
         //Interaction command.
         if (Input.GetKeyDown("e"))
         {
-            
+
             Interact.GetComponent<PlayerInteract>().PressedE();
 
         }
@@ -57,14 +71,6 @@ public class PlayerController : MonoBehaviour
         {
             animationCD -= Time.deltaTime;
         }
-
-    }
-
-    void FixedUpdate()
-    {
-
-        rb.MovePosition(rb.position + (move.normalized * moveSpeed * Time.deltaTime));
-
     }
 
 }
