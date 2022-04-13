@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
+    public string description;
 
-    public GameObject ECanvas;
+    GameObject interactionIndicator;
+    GameObject descriptionBox;
+
+    private void Start()
+    {
+        interactionIndicator = GameObject.FindGameObjectWithTag("E");
+    }
 
     //This method should start dialog or reference something that does. This could also be used to pick up items, if we so wish.
     public void Interacted()
@@ -13,10 +20,12 @@ public class Interactable : MonoBehaviour
         Debug.Log("OMG! I'm being interacted!");
     }
 
-    public void ShowTutorialE(int layer)
+    // Shows interaction indicator
+    public void ShowTutorialE(bool active)
     {
-        ECanvas.transform.position = transform.position;
-        ECanvas.GetComponent<Canvas>().sortingOrder = layer;
+        interactionIndicator.transform.position = transform.position;
+        //interactionIndicator.GetComponent<Canvas>().sortingOrder = layer;
+        interactionIndicator.SetActive(active);
     }
 
 }

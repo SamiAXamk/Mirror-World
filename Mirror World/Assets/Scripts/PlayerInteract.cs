@@ -16,7 +16,7 @@ public class PlayerInteract : MonoBehaviour
         {
             Interactables.Add(other);
             
-            other.gameObject.GetComponent<Interactable>().ShowTutorialE(10);
+            other.gameObject.GetComponent<Interactable>().ShowTutorialE(true);
         }
     }
 
@@ -31,7 +31,7 @@ public class PlayerInteract : MonoBehaviour
             
             if (Interactables.Count == 0)
             {
-                other.gameObject.GetComponent<Interactable>().ShowTutorialE(-10);
+                other.gameObject.GetComponent<Interactable>().ShowTutorialE(false);
             }
         }
     }

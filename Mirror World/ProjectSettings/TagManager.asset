@@ -8,6 +8,7 @@ TagManager:
   - Interactable
   - Enemy
   - InventoryObject
+  - E
   layers:
   - Default
   - TransparentFX
