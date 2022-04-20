@@ -40,6 +40,14 @@ public class DialogueManager : MonoBehaviour
         currentDialogue = FindDialogue(dialogueId);
     }
 
+    public void StartDialogue(DialogueScriptableObject dialogue)
+    {
+        textField.gameObject.SetActive(true);
+
+        dialogueObjectIndex = 0;
+        currentDialogue = dialogue;
+    }
+
     private void StopDialogue()
     {
         textField.gameObject.SetActive(false);

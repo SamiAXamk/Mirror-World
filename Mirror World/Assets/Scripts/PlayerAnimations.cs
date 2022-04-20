@@ -59,7 +59,7 @@ public class PlayerAnimations : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             anim.SetBool("WalkLeft", true);
-            renderer.sprite = right;
+            //renderer.sprite = right;
             renderer.flipX = true;
         }
         else

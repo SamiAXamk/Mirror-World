@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - InventoryObject
   - E
+  - Dialogue
   layers:
   - Default
   - TransparentFX
