@@ -15,6 +15,8 @@ public class PlayerInteract : MonoBehaviour
 
     GameObject interactionIndicator;
 
+    public AreaChanger areaChanger;
+
     private void Start()
     {
         interactionIndicator = GameObject.FindGameObjectWithTag("E");
@@ -24,7 +26,7 @@ public class PlayerInteract : MonoBehaviour
     //Calls for the last item on the list to be used.
     public void PressedE()
     {
-        if(dialogues.Count != 0)
+        if (dialogues.Count != 0)
         {
             //listLast = dialogues.Count - 1;
 
@@ -32,10 +34,21 @@ public class PlayerInteract : MonoBehaviour
         }
         else if (interactables.Count != 0 && !descriptionBox.activeSelf)
         {
-            descriptionBox.SetActive(true);
-            //listLast = interactables.Count - 1;
+            // if there is a description text
+            if (interactables[interactables.Count - 1].gameObject.TryGetComponent(out Interactable interactable))
+            {
+                descriptionBox.SetActive(true);
+                //listLast = interactables.Count - 1;
 
-            descriptionBox.GetComponentInChildren<TextMeshProUGUI>().text = interactables[interactables.Count - 1].gameObject.GetComponent<Interactable>().Interacted();
+                descriptionBox.GetComponentInChildren<TextMeshProUGUI>().text = interactable.description;
+            }
+            // no text, the object is a door
+            else
+            {
+                GameObject targetDoor = interactables[interactables.Count - 1].gameObject.GetComponent<Door>().connectedDoor;
+                //transform.parent.position = targetDoor.transform.position;
+                areaChanger.FadeToArea(targetDoor.transform.position, transform.parent.gameObject);
+            }
         }
         else
             descriptionBox.SetActive(false);
@@ -44,7 +57,7 @@ public class PlayerInteract : MonoBehaviour
     //Adds interactable to the list
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Interactable"))
+        if (other.gameObject.CompareTag("Interactable") || other.gameObject.CompareTag("Door"))
         {
             interactables.Add(other);
 
@@ -77,7 +90,7 @@ public class PlayerInteract : MonoBehaviour
         {
             dialogues.Remove(other);
 
-            if(dialogues.Count == 0)
+            if (dialogues.Count == 0)
             {
                 ShowInteractIndicator(false, null);
             }
@@ -96,4 +109,6 @@ public class PlayerInteract : MonoBehaviour
             interactionIndicator.GetComponent<RectTransform>().anchoredPosition = screenPoint - canva.GetComponent<RectTransform>().sizeDelta / 2f;
         }
     }
+
+    
 }

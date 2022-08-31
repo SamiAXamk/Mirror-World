@@ -10,6 +10,7 @@ TagManager:
   - InventoryObject
   - E
   - Dialogue
+  - Door
   layers:
   - Default
   - TransparentFX
