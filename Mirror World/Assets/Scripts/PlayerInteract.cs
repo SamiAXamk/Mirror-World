@@ -45,9 +45,11 @@ public class PlayerInteract : MonoBehaviour
             // no text, the object is a door
             else
             {
-                GameObject targetDoor = interactables[interactables.Count - 1].gameObject.GetComponent<Door>().connectedDoor;
+                /* Get the connected door and move player there */
+
+                Transform targetDoor = interactables[interactables.Count - 1].gameObject.GetComponent<Door>().connectedDoor.transform;
                 //transform.parent.position = targetDoor.transform.position;
-                areaChanger.FadeToArea(targetDoor.transform.position, transform.parent.gameObject);
+                areaChanger.FadeToArea(targetDoor, transform.parent.gameObject);
             }
         }
         else
