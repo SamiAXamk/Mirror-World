@@ -1,24 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
 
-[Serializable]
-public class ConsumableItem : ItemBase
+public class ConsumableA : ConsumableItem
 {
-    public int amount;
-
-    public ConsumableItem(int _id, string _name, Sprite _sprite, string _description)
+    public ConsumableA(int _id, string _name, Sprite _sprite, string _description) : base(_id, _name, _sprite, _description)
     {
-        id = _id;
-        name = _name;
-        sprite = _sprite;
-        description = _description;
-        amount = 1;
+        
     }
 
-    public virtual void UseItem(List<ConsumableItem> list)
+    public override void UseItem(List<ConsumableItem> list)
     {
+        Debug.Log("vekotin");
         Debug.Log("Item used");
         // TO DO, STUFF THAT HAPPENS WHEN ITEM IS USED
         amount--;

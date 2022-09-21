@@ -11,6 +11,7 @@ TagManager:
   - E
   - Dialogue
   - Door
+  - Flashlight
   layers:
   - Default
   - TransparentFX

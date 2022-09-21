@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class SpriteScript : MonoBehaviour
 {
-
-
-
-void LateUpdate()
+    void LateUpdate()
     {
         transform.localRotation = transform.localRotation * Quaternion.Inverse(transform.rotation);
     }
-
-
 }

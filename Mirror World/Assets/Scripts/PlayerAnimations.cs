@@ -26,7 +26,9 @@ public class PlayerAnimations : MonoBehaviour
         //else
         //    anim.enabled = false;
 
-        if (Input.GetKey(KeyCode.DownArrow))
+        Vector2 move = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+        if(move.y < 0)
         {
             renderer.flipX = false;
             anim.SetBool("WalkDown", true);
@@ -36,7 +38,7 @@ public class PlayerAnimations : MonoBehaviour
             anim.SetBool("WalkDown", false);
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if(move.y > 0)
         {
             renderer.flipX = false;
             anim.SetBool("WalkUp", true);
@@ -46,7 +48,7 @@ public class PlayerAnimations : MonoBehaviour
             anim.SetBool("WalkUp", false);
         }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if(move.x > 0)
         {
             renderer.flipX = false;
             anim.SetBool("WalkRight", true);
@@ -56,7 +58,7 @@ public class PlayerAnimations : MonoBehaviour
             anim.SetBool("WalkRight", false);
         }
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if(move.x < 0)
         {
             anim.SetBool("WalkLeft", true);
             //renderer.sprite = right;
